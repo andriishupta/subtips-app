@@ -1,4 +1,4 @@
-import Navbar from '@components/ui/Navbars/AuthNavbar';
+import Navbar from '@components/ui/Navbars/Navbar';
 import Footer from '@components/ui/Footers/Footer';
 
 export default function ProfileHandleOrWallet() {
@@ -48,7 +48,7 @@ export default function ProfileHandleOrWallet() {
                     <div className="relative">
                       <img
                         alt="..."
-                        src="/img/team-2-800x800.jpg"
+                        src="/img/andriishupta.png"
                         className="absolute -m-16 -ml-20 h-auto max-w-150-px rounded-full border-none align-middle shadow-xl lg:-ml-16"
                       />
                     </div>

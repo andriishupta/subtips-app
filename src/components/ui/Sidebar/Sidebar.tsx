@@ -26,7 +26,7 @@ export default function Sidebar() {
               href="#pablo"
               className="mr-0 inline-block whitespace-nowrap p-4 px-0 text-left text-sm font-bold uppercase text-slate-600 md:block md:pb-2"
             >
-              Notus NextJS
+              SubTips
             </a>
           </Link>
           {/* User */}
@@ -54,7 +54,7 @@ export default function Sidebar() {
                       href="#pablo"
                       className="mr-0 inline-block whitespace-nowrap p-4 px-0 text-left text-sm font-bold uppercase text-slate-600 md:block md:pb-2"
                     >
-                      Notus NextJS
+                      SubTips
                     </a>
                   </Link>
                 </div>

@@ -8,12 +8,12 @@ export default function Navbar(props: any) {
       <nav className="navbar-expand-lg absolute top-0 z-50 flex w-full flex-wrap items-center justify-between px-2 py-3">
         <div className="container mx-auto flex flex-wrap items-center justify-between px-4">
           <div className="relative flex w-full justify-between lg:static lg:block lg:w-auto lg:justify-start">
-            <Link href="/src/t3-example.tsx" legacyBehavior>
+            <Link href="/" legacyBehavior>
               <a
                 className="mr-4 inline-block whitespace-nowrap py-2 text-sm font-bold uppercase leading-relaxed text-white"
                 href="@components/ui/Navbars/AuthNavbar#pablo"
               >
-                Notus NextJS
+                SubTips
               </a>
             </Link>
             <button
@@ -31,17 +31,6 @@ export default function Navbar(props: any) {
             }
             id="example-navbar-warning"
           >
-            <ul className="mr-auto flex list-none flex-col lg:flex-row">
-              <li className="flex items-center">
-                <a
-                  className="flex items-center px-3 py-4 text-xs font-bold uppercase text-slate-700 lg:py-2 lg:text-white lg:hover:text-slate-200"
-                  href="https://www.creative-tim.com/learning-lab/tailwind/nextjs/overview/notus?ref=nnjs-auth-navbar"
-                >
-                  <i className="far fa-file-alt leading-lg mr-2 text-lg text-slate-400 lg:text-slate-200" />{' '}
-                  Docs
-                </a>
-              </li>
-            </ul>
             <ul className="flex list-none flex-col lg:ml-auto lg:flex-row">
               <li className="flex items-center">
                 <a
@@ -51,7 +40,7 @@ export default function Navbar(props: any) {
                   rel="noreferrer"
                 >
                   <i className="fab fa-facebook leading-lg text-lg text-slate-400 lg:text-slate-200 " />
-                  <span className="ml-2 inline-block lg:hidden">Share</span>
+                  <span className="ml-2 inline-block">Polkaverse</span>
                 </a>
               </li>
 
@@ -63,7 +52,7 @@ export default function Navbar(props: any) {
                   rel="noreferrer"
                 >
                   <i className="fab fa-twitter leading-lg text-lg text-slate-400 lg:text-slate-200 " />
-                  <span className="ml-2 inline-block lg:hidden">Tweet</span>
+                  <span className="ml-2 inline-block">Tweeter</span>
                 </a>
               </li>
 
@@ -75,26 +64,8 @@ export default function Navbar(props: any) {
                   rel="noreferrer"
                 >
                   <i className="fab fa-github leading-lg text-lg text-slate-400 lg:text-slate-200 " />
-                  <span className="ml-2 inline-block lg:hidden">Star</span>
+                  <span className="ml-2 inline-block">Github</span>
                 </a>
-              </li>
-
-              <li className="flex items-center">
-                <button
-                  className="ml-3 mb-3 rounded bg-white px-4 py-2 text-xs font-bold uppercase text-slate-700 shadow outline-none transition-all duration-150 ease-linear hover:shadow-md focus:outline-none active:bg-slate-50 lg:mr-1 lg:mb-0"
-                  type="button"
-                >
-                  <i className="fas fa-arrow-alt-circle-down"></i> Search
-                </button>
-              </li>
-
-              <li className="flex items-center">
-                <button
-                  className="ml-3 mb-3 rounded bg-white px-4 py-2 text-xs font-bold uppercase text-slate-700 shadow outline-none transition-all duration-150 ease-linear hover:shadow-md focus:outline-none active:bg-slate-50 lg:mr-1 lg:mb-0"
-                  type="button"
-                >
-                  <i className="fas fa-arrow-alt-circle-down"></i> Connect
-                </button>
               </li>
             </ul>
           </div>

@@ -6,7 +6,7 @@ export default function GeneralStats() {
   return (
     <>
       {/* Header */}
-      <div className="relative bg-slate-800 pb-32 pt-12 md:pt-32">
+      <div className="relative bg-fuchsia-800 pb-32 pt-12 md:pt-32">
         <div className="mx-auto w-full px-4 md:px-10">
           <div>
             {/* Card stats */}
