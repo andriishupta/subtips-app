@@ -23,7 +23,7 @@ export default function Sidebar() {
           {/* Brand */}
           <Link href="/" legacyBehavior>
             <a
-              href="#pablo"
+              href="@components/Sidebar/Sidebar#pablo"
               className="mr-0 inline-block whitespace-nowrap p-4 px-0 text-left text-sm font-bold uppercase text-slate-600 md:block md:pb-2"
             >
               SubTips
@@ -51,7 +51,7 @@ export default function Sidebar() {
                 <div className="w-6/12">
                   <Link href="/" legacyBehavior>
                     <a
-                      href="#pablo"
+                      href="@components/Sidebar/Sidebar#pablo"
                       className="mr-0 inline-block whitespace-nowrap p-4 px-0 text-left text-sm font-bold uppercase text-slate-600 md:block md:pb-2"
                     >
                       SubTips
@@ -74,7 +74,7 @@ export default function Sidebar() {
               <li className="items-center">
                 <Link href="/admin/dashboard" legacyBehavior>
                   <a
-                    href="#pablo"
+                    href="@components/Sidebar/Sidebar#pablo"
                     className={
                       'block py-3 text-xs font-bold uppercase ' +
                       (router.pathname.indexOf('/admin/dashboard') !== -1
@@ -98,7 +98,7 @@ export default function Sidebar() {
               <li className="items-center">
                 <Link href="/admin/settings" legacyBehavior>
                   <a
-                    href="#pablo"
+                    href="@components/Sidebar/Sidebar#pablo"
                     className={
                       'block py-3 text-xs font-bold uppercase ' +
                       (router.pathname.indexOf('/admin/settings') !== -1
@@ -122,7 +122,7 @@ export default function Sidebar() {
               <li className="items-center">
                 <Link href="/admin/tables" legacyBehavior>
                   <a
-                    href="#pablo"
+                    href="@components/Sidebar/Sidebar#pablo"
                     className={
                       'block py-3 text-xs font-bold uppercase ' +
                       (router.pathname.indexOf('/admin/tables') !== -1
@@ -146,7 +146,7 @@ export default function Sidebar() {
               <li className="items-center">
                 <Link href="/admin/maps" legacyBehavior>
                   <a
-                    href="#pablo"
+                    href="@components/Sidebar/Sidebar#pablo"
                     className={
                       'block py-3 text-xs font-bold uppercase ' +
                       (router.pathname.indexOf('/admin/maps') !== -1
@@ -169,7 +169,7 @@ export default function Sidebar() {
               <li className="items-center">
                 <Link href="/admin/maps" legacyBehavior>
                   <a
-                    href="#pablo"
+                    href="@components/Sidebar/Sidebar#pablo"
                     className={
                       'block py-3 text-xs font-bold uppercase ' +
                       (router.pathname.indexOf('/admin/maps') !== -1
@@ -192,7 +192,7 @@ export default function Sidebar() {
               <li className="items-center">
                 <Link href="/admin/maps" legacyBehavior>
                   <a
-                    href="#pablo"
+                    href="@components/Sidebar/Sidebar#pablo"
                     className={
                       'block py-3 text-xs font-bold uppercase ' +
                       (router.pathname.indexOf('/admin/maps') !== -1
@@ -215,7 +215,7 @@ export default function Sidebar() {
               <li className="items-center">
                 <Link href="/admin/maps" legacyBehavior>
                   <a
-                    href="#pablo"
+                    href="@components/Sidebar/Sidebar#pablo"
                     className={
                       'block py-3 text-xs font-bold uppercase ' +
                       (router.pathname.indexOf('/admin/maps') !== -1
@@ -244,7 +244,7 @@ export default function Sidebar() {
               <li className="items-center">
                 <Link href="/auth/login" legacyBehavior>
                   <a
-                    href="#pablo"
+                    href="@components/Sidebar/Sidebar#pablo"
                     className="block py-3 text-xs font-bold uppercase text-slate-700 hover:text-slate-500"
                   >
                     <i className="fas fa-fingerprint mr-2 text-sm text-slate-400"></i>{' '}
@@ -256,7 +256,7 @@ export default function Sidebar() {
               <li className="items-center">
                 <Link href="/auth/register" legacyBehavior>
                   <a
-                    href="#pablo"
+                    href="@components/Sidebar/Sidebar#pablo"
                     className="block py-3 text-xs font-bold uppercase text-slate-700 hover:text-slate-500"
                   >
                     <i className="fas fa-clipboard-list mr-2 text-sm text-slate-300"></i>{' '}
@@ -268,7 +268,7 @@ export default function Sidebar() {
               <li className="items-center">
                 <Link href="/auth/register" legacyBehavior>
                   <a
-                    href="#pablo"
+                    href="@components/Sidebar/Sidebar#pablo"
                     className="block py-3 text-xs font-bold uppercase text-slate-700 hover:text-slate-500"
                   >
                     <i className="fas fa-clipboard-list mr-2 text-sm text-slate-300"></i>{' '}

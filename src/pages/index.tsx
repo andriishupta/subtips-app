@@ -1,7 +1,7 @@
 import Link from 'next/link';
 
-import Navbar from '@components/ui/Navbars/Navbar';
-import Footer from '@components/ui/Footers/Footer';
+import Navbar from '@components/Navbars/Navbar';
+import Footer from '@components/Footers/Footer';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChair } from '@fortawesome/free-solid-svg-icons';
 
@@ -21,7 +21,7 @@ export default function Landing() {
           <div className="container relative mx-auto">
             <div className="flex flex-wrap items-center">
               <div className="ml-auto mr-auto w-full px-4 text-center lg:w-6/12">
-                <div className="pr-12">
+                <div className="mt-4 pr-12">
                   <h1 className="text-5xl font-semibold text-white">
                     Your story starts with a support.
                   </h1>

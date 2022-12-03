@@ -1,7 +1,7 @@
 import { useRef } from 'react';
 import UserDropdown from '@components/Dropdowns/UserDropdown';
 
-export default function Navbar() {
+export default function DashboardNavbar() {
   return (
     <>
       {/* Navbar */}
@@ -10,7 +10,7 @@ export default function Navbar() {
           {/* Brand */}
           <a
             className="hidden text-sm font-semibold uppercase text-white lg:inline-block"
-            href="#pablo"
+            href="@components/Navbars/DashboardNavbar#pablo"
             onClick={(e) => e.preventDefault()}
           >
             Dashboard

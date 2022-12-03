@@ -1,5 +1,5 @@
-import Navbar from '@components/ui/Navbars/Navbar';
-import Footer from '@components/ui/Footers/Footer';
+import Navbar from '@components/Navbars/Navbar';
+import Footer from '@components/Footers/Footer';
 
 export default function ProfileHandleOrWallet() {
   return (
