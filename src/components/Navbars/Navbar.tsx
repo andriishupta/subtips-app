@@ -52,7 +52,7 @@ export default function Navbar(props: any) {
                   rel="noreferrer"
                 >
                   <i className="fab fa-twitter leading-lg text-lg text-slate-400 lg:text-slate-200 " />
-                  <span className="ml-2 inline-block">Tweeter</span>
+                  <span className="ml-2 inline-block">Twitter</span>
                 </a>
               </li>
 
