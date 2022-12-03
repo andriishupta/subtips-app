@@ -23,7 +23,7 @@ export default function Sidebar() {
           {/* Brand */}
           <Link href="/" legacyBehavior>
             <a
-              href="@components/Sidebar/Sidebar#pablo"
+              href="/"
               className="mr-0 inline-block whitespace-nowrap p-4 px-0 text-left text-sm font-bold uppercase text-slate-600 md:block md:pb-2"
             >
               SubTips
@@ -51,7 +51,7 @@ export default function Sidebar() {
                 <div className="w-6/12">
                   <Link href="/" legacyBehavior>
                     <a
-                      href="@components/Sidebar/Sidebar#pablo"
+                      href="/"
                       className="mr-0 inline-block whitespace-nowrap p-4 px-0 text-left text-sm font-bold uppercase text-slate-600 md:block md:pb-2"
                     >
                       SubTips
@@ -72,9 +72,9 @@ export default function Sidebar() {
 
             <ul className="flex list-none flex-col md:min-w-full md:flex-col">
               <li className="items-center">
-                <Link href="/admin/dashboard" legacyBehavior>
+                <Link href="/" legacyBehavior>
                   <a
-                    href="@components/Sidebar/Sidebar#pablo"
+                    href="/"
                     className={
                       'block py-3 text-xs font-bold uppercase ' +
                       (router.pathname.indexOf('/admin/dashboard') !== -1
@@ -90,109 +90,15 @@ export default function Sidebar() {
                           : 'text-slate-300')
                       }
                     ></i>{' '}
-                    Dashboard
+                    My Profile
                   </a>
                 </Link>
               </li>
 
               <li className="items-center">
-                <Link href="/admin/settings" legacyBehavior>
+                <Link href="/messages" legacyBehavior>
                   <a
-                    href="@components/Sidebar/Sidebar#pablo"
-                    className={
-                      'block py-3 text-xs font-bold uppercase ' +
-                      (router.pathname.indexOf('/admin/settings') !== -1
-                        ? 'text-sky-500 hover:text-sky-600'
-                        : 'text-slate-700 hover:text-slate-500')
-                    }
-                  >
-                    <i
-                      className={
-                        'fas fa-tools mr-2 text-sm ' +
-                        (router.pathname.indexOf('/admin/settings') !== -1
-                          ? 'opacity-75'
-                          : 'text-slate-300')
-                      }
-                    ></i>{' '}
-                    Help You Grow
-                  </a>
-                </Link>
-              </li>
-
-              <li className="items-center">
-                <Link href="/admin/tables" legacyBehavior>
-                  <a
-                    href="@components/Sidebar/Sidebar#pablo"
-                    className={
-                      'block py-3 text-xs font-bold uppercase ' +
-                      (router.pathname.indexOf('/admin/tables') !== -1
-                        ? 'text-sky-500 hover:text-sky-600'
-                        : 'text-slate-700 hover:text-slate-500')
-                    }
-                  >
-                    <i
-                      className={
-                        'fas fa-table mr-2 text-sm ' +
-                        (router.pathname.indexOf('/admin/tables') !== -1
-                          ? 'opacity-75'
-                          : 'text-slate-300')
-                      }
-                    ></i>{' '}
-                    You help grow
-                  </a>
-                </Link>
-              </li>
-
-              <li className="items-center">
-                <Link href="/admin/maps" legacyBehavior>
-                  <a
-                    href="@components/Sidebar/Sidebar#pablo"
-                    className={
-                      'block py-3 text-xs font-bold uppercase ' +
-                      (router.pathname.indexOf('/admin/maps') !== -1
-                        ? 'text-sky-500 hover:text-sky-600'
-                        : 'text-slate-700 hover:text-slate-500')
-                    }
-                  >
-                    <i
-                      className={
-                        'fas fa-map-marked mr-2 text-sm ' +
-                        (router.pathname.indexOf('/admin/maps') !== -1
-                          ? 'opacity-75'
-                          : 'text-slate-300')
-                      }
-                    ></i>{' '}
-                    Maps
-                  </a>
-                </Link>
-              </li>
-              <li className="items-center">
-                <Link href="/admin/maps" legacyBehavior>
-                  <a
-                    href="@components/Sidebar/Sidebar#pablo"
-                    className={
-                      'block py-3 text-xs font-bold uppercase ' +
-                      (router.pathname.indexOf('/admin/maps') !== -1
-                        ? 'text-sky-500 hover:text-sky-600'
-                        : 'text-slate-700 hover:text-slate-500')
-                    }
-                  >
-                    <i
-                      className={
-                        'fas fa-map-marked mr-2 text-sm ' +
-                        (router.pathname.indexOf('/admin/maps') !== -1
-                          ? 'opacity-75'
-                          : 'text-slate-300')
-                      }
-                    ></i>{' '}
-                    Statistics
-                  </a>
-                </Link>
-              </li>
-              <li className="items-center">
-                <Link href="/admin/maps" legacyBehavior>
-                  <a
-                    href="@components/Sidebar/Sidebar#pablo"
+                    href="/"
                     className={
                       'block py-3 text-xs font-bold uppercase ' +
                       (router.pathname.indexOf('/admin/maps') !== -1
@@ -213,9 +119,9 @@ export default function Sidebar() {
                 </Link>
               </li>
               <li className="items-center">
-                <Link href="/admin/maps" legacyBehavior>
+                <Link href="/notifications" legacyBehavior>
                   <a
-                    href="@components/Sidebar/Sidebar#pablo"
+                    href="/"
                     className={
                       'block py-3 text-xs font-bold uppercase ' +
                       (router.pathname.indexOf('/admin/maps') !== -1
@@ -244,35 +150,11 @@ export default function Sidebar() {
               <li className="items-center">
                 <Link href="/auth/login" legacyBehavior>
                   <a
-                    href="@components/Sidebar/Sidebar#pablo"
+                    href="/"
                     className="block py-3 text-xs font-bold uppercase text-slate-700 hover:text-slate-500"
                   >
                     <i className="fas fa-fingerprint mr-2 text-sm text-slate-400"></i>{' '}
-                    Theme
-                  </a>
-                </Link>
-              </li>
-
-              <li className="items-center">
-                <Link href="/auth/register" legacyBehavior>
-                  <a
-                    href="@components/Sidebar/Sidebar#pablo"
-                    className="block py-3 text-xs font-bold uppercase text-slate-700 hover:text-slate-500"
-                  >
-                    <i className="fas fa-clipboard-list mr-2 text-sm text-slate-300"></i>{' '}
-                    Emoji
-                  </a>
-                </Link>
-              </li>
-
-              <li className="items-center">
-                <Link href="/auth/register" legacyBehavior>
-                  <a
-                    href="@components/Sidebar/Sidebar#pablo"
-                    className="block py-3 text-xs font-bold uppercase text-slate-700 hover:text-slate-500"
-                  >
-                    <i className="fas fa-clipboard-list mr-2 text-sm text-slate-300"></i>{' '}
-                    Footer Links
+                    Theme Icon
                   </a>
                 </Link>
               </li>

@@ -1,8 +1,12 @@
 import Link from 'next/link';
 import { useState } from 'react';
+import { ConnectButton } from '@components/ConnectButton/ConnectButton';
+import { useWeb3 } from '@web3/context';
 
-export default function Navbar(props: any) {
+export default function Navbar() {
   const [navbarOpen, setNavbarOpen] = useState(false);
+  const { isReady } = useWeb3();
+
   return (
     <>
       <nav className="navbar-expand-lg absolute top-0 z-50 flex w-full flex-wrap items-center justify-between px-2 py-3">
@@ -32,6 +36,22 @@ export default function Navbar(props: any) {
             id="example-navbar-warning"
           >
             <ul className="flex list-none flex-col lg:ml-auto lg:flex-row">
+              {isReady && (
+                <li className="flex items-center">
+                  <Link
+                    href="/dashboard"
+                    className="flex items-center px-3 py-4 text-xs font-bold uppercase text-slate-700 lg:py-2 lg:text-white lg:hover:text-slate-200"
+                  >
+                    <i className="fab fa-facebook leading-lg text-lg text-slate-400 lg:text-slate-200 " />
+                    <span className="ml-2 inline-block">Dashboard</span>
+                  </Link>
+                </li>
+              )}
+
+              <li className="flex items-center">
+                <ConnectButton />
+              </li>
+
               <li className="flex items-center">
                 <a
                   className="flex items-center px-3 py-4 text-xs font-bold uppercase text-slate-700 lg:py-2 lg:text-white lg:hover:text-slate-200"

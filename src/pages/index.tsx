@@ -2,23 +2,8 @@ import Navbar from '@components/Navbars/Navbar';
 import Footer from '@components/Footers/Footer';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChair } from '@fortawesome/free-solid-svg-icons';
-import { useWeb3, loadWeb3Context } from '@web3/context';
-import { useState } from 'react';
-import Image from 'next/image'
-import clsx from 'clsx';
-import { getProfileImagePlaceHolder } from "@utils/base64-image";
 
 export default function Index() {
-  const { isReady, defaultAccount, setWeb3Context } = useWeb3();
-  const [connecting, setConnecting] = useState(false);
-
-  const handleConnect = async () => {
-    setConnecting(true);
-    const nextWeb3Context = await loadWeb3Context();
-    setWeb3Context(nextWeb3Context);
-    setConnecting(false);
-  };
-
   return (
     <>
       <Navbar transparent />
@@ -42,32 +27,6 @@ export default function Index() {
                     Build a strong community of supporters by leveraging power
                     of Subsocial Network!
                   </p>
-                </div>
-
-                <div className="my-16">
-                  {isReady && defaultAccount ? (
-                    <div className="flex align-center justify-center">
-                      <Image
-                        src={getProfileImagePlaceHolder(defaultAccount.address)}
-                        width={48}
-                        height={48}
-                        alt={defaultAccount.address}
-                      />
-                    </div>
-                  ) : (
-                    <button
-                      disabled={connecting}
-                      className={clsx(
-                        'mt-4 rounded bg-fuchsia-400 px-6 py-4 text-lg font-bold uppercase text-slate-200 shadow outline-none focus:outline-none',
-                        connecting
-                          ? 'cursor-not-allowed'
-                          : 'hover:bg-fuchsia-500 hover:shadow-lg active:bg-fuchsia-600'
-                      )}
-                      onClick={() => handleConnect()}
-                    >
-                      {connecting ? 'Connecting...' : 'Connect'}
-                    </button>
-                  )}
                 </div>
               </div>
             </div>
