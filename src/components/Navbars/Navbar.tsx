@@ -5,10 +5,9 @@ import { useWeb3 } from '@web3/context';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faRocket, faSpinner } from '@fortawesome/free-solid-svg-icons';
 import { faGithub, faTwitter } from '@fortawesome/free-brands-svg-icons';
-import SubTipsStatus from "@components/Helpers/SubTipsStatus";
+import SubTipsStatus from '@components/Helpers/SubTipsStatus';
 
 export default function Navbar() {
-  const [navbarOpen, setNavbarOpen] = useState(false);
   const { activeUser, subsocialApi, error } = useWeb3();
   console.log('active user from navbar:', activeUser);
 
@@ -17,30 +16,27 @@ export default function Navbar() {
       <nav className="navbar-expand-lg absolute top-0 z-50 flex w-full flex-wrap items-center justify-between px-2 py-3">
         <div className="container mx-auto flex flex-wrap items-center justify-between px-4">
           <div className="relative flex w-full justify-between lg:static lg:block lg:w-auto lg:justify-start">
-            <Link href="/" legacyBehavior>
-              <a
-                className="mr-4 inline-block whitespace-nowrap py-2 text-sm font-bold uppercase leading-relaxed text-white"
-                href="@components/ui/Navbars/AuthNavbar#pablo"
-              >
-                <SubTipsStatus/>
-              </a>
+            <Link
+              href="/"
+              className="mr-4 inline-block whitespace-nowrap py-2 text-sm font-bold uppercase leading-relaxed text-white"
+            >
+              <SubTipsStatus />
             </Link>
-            {activeUser ? (
-              <button
-                className="cursor-pointer rounded px-3 py-1 text-xl text-white leading-none outline-none focus:outline-none lg:hidden"
-                type="button"
-              >
-                <Link href="/dashboard">Dashboard</Link>
-              </button>
-            ) : (
-              <SignInButton />
-            )}
+            <div className="block lg:hidden">
+              {activeUser ? (
+                <button
+                  className="cursor-pointer rounded px-3 py-1 text-xl leading-none text-white outline-none focus:outline-none lg:hidden"
+                  type="button"
+                >
+                  <Link href="/dashboard">Dashboard</Link>
+                </button>
+              ) : (
+                <SignInButton />
+              )}
+            </div>
           </div>
           <div
-            className={
-              'flex-grow items-center bg-white lg:flex lg:bg-opacity-0 lg:shadow-none' +
-              (navbarOpen ? ' block rounded shadow-lg' : ' hidden')
-            }
+            className="hidden lg:flex flex-grow items-center bg-white lg:flex lg:bg-opacity-0 lg:shadow-none"
             id="example-navbar-warning"
           >
             <ul className="flex list-none flex-col lg:ml-auto lg:flex-row">

@@ -4,7 +4,9 @@ import { useRouter } from 'next/router';
 
 import NotificationDropdown from '@components/Dropdowns/NotificationDropdown';
 import UserDropdown from '@components/Dropdowns/UserDropdown';
-import SubTipsStatus from "@components/Helpers/SubTipsStatus";
+import SubTipsStatus from '@components/Helpers/SubTipsStatus';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faMoon, faSun, faTimes } from '@fortawesome/free-solid-svg-icons';
 
 export default function Sidebar() {
   const [collapseShow, setCollapseShow] = useState('hidden');
@@ -26,7 +28,7 @@ export default function Sidebar() {
             href="/"
             className="mr-0 inline-block whitespace-nowrap p-4 px-0 text-left text-sm font-bold uppercase text-slate-600 md:block md:pb-2"
           >
-            <SubTipsStatus/>
+            <SubTipsStatus />
           </Link>
           {/* User */}
           <ul className="flex list-none flex-wrap items-center md:hidden">
@@ -48,13 +50,11 @@ export default function Sidebar() {
             <div className="mb-4 block border-b border-solid border-slate-200 pb-4 md:hidden md:min-w-full">
               <div className="flex flex-wrap">
                 <div className="w-6/12">
-                  <Link href="/" legacyBehavior>
-                    <a
-                      href="/"
-                      className="mr-0 inline-block whitespace-nowrap p-4 px-0 text-left text-sm font-bold uppercase text-slate-600 md:block md:pb-2"
-                    >
-                      SubTips
-                    </a>
+                  <Link
+                    href="/"
+                    className="mr-0 inline-block whitespace-nowrap p-4 px-0 text-left text-sm font-bold uppercase text-slate-600 md:block md:pb-2"
+                  >
+                    <SubTipsStatus />
                   </Link>
                 </div>
                 <div className="flex w-6/12 justify-end">
@@ -63,7 +63,7 @@ export default function Sidebar() {
                     className="cursor-pointer rounded border border-solid border-transparent bg-transparent px-3 py-1 text-xl leading-none text-black opacity-50 md:hidden"
                     onClick={() => setCollapseShow('hidden')}
                   >
-                    <i className="fas fa-times"></i>
+                    <FontAwesomeIcon icon={faTimes} />
                   </button>
                 </div>
               </div>
@@ -71,73 +71,33 @@ export default function Sidebar() {
 
             <ul className="flex list-none flex-col md:min-w-full md:flex-col">
               <li className="items-center">
-                <Link href="/" legacyBehavior>
-                  <a
-                    href="/"
-                    className={
-                      'block py-3 text-xs font-bold uppercase ' +
-                      (router.pathname.indexOf('/admin/dashboard') !== -1
-                        ? 'text-sky-500 hover:text-sky-600'
-                        : 'text-slate-700 hover:text-slate-500')
-                    }
-                  >
-                    <i
-                      className={
-                        'fas fa-tv mr-2 text-sm ' +
-                        (router.pathname.indexOf('/admin/dashboard') !== -1
-                          ? 'opacity-75'
-                          : 'text-slate-300')
-                      }
-                    ></i>{' '}
-                    My Profile
-                  </a>
+                <Link
+                  href="/"
+                  className={
+                    'block py-3 text-xs font-bold uppercase ' +
+                    (router.pathname.indexOf('/admin/dashboard') !== -1
+                      ? 'text-sky-500 hover:text-sky-600'
+                      : 'text-slate-700 hover:text-slate-500')
+                  }
+                >
+                  My Profile
                 </Link>
               </li>
 
               <li className="items-center">
-                <Link href="/messages" legacyBehavior>
-                  <a
-                    href="/"
-                    className={
-                      'block py-3 text-xs font-bold uppercase ' +
-                      (router.pathname.indexOf('/admin/maps') !== -1
-                        ? 'text-sky-500 hover:text-sky-600'
-                        : 'text-slate-700 hover:text-slate-500')
-                    }
-                  >
-                    <i
-                      className={
-                        'fas fa-map-marked mr-2 text-sm ' +
-                        (router.pathname.indexOf('/admin/maps') !== -1
-                          ? 'opacity-75'
-                          : 'text-slate-300')
-                      }
-                    ></i>{' '}
-                    Messages
-                  </a>
+                <Link
+                  href="/messages"
+                  className="block cursor-not-allowed py-3 text-xs font-bold uppercase text-slate-300"
+                >
+                  Messages
                 </Link>
               </li>
               <li className="items-center">
-                <Link href="/notifications" legacyBehavior>
-                  <a
-                    href="/"
-                    className={
-                      'block py-3 text-xs font-bold uppercase ' +
-                      (router.pathname.indexOf('/admin/maps') !== -1
-                        ? 'text-sky-500 hover:text-sky-600'
-                        : 'text-slate-700 hover:text-slate-500')
-                    }
-                  >
-                    <i
-                      className={
-                        'fas fa-map-marked mr-2 text-sm ' +
-                        (router.pathname.indexOf('/admin/maps') !== -1
-                          ? 'opacity-75'
-                          : 'text-slate-300')
-                      }
-                    ></i>{' '}
-                    Notifications
-                  </a>
+                <Link
+                  href="/notifications"
+                  className="block cursor-not-allowed py-3 text-xs font-bold uppercase text-slate-300"
+                >
+                  Notifications
                 </Link>
               </li>
             </ul>
@@ -147,15 +107,10 @@ export default function Sidebar() {
 
             <ul className="flex list-none flex-col md:mb-4 md:min-w-full md:flex-col">
               <li className="items-center">
-                <Link href="/auth/login" legacyBehavior>
-                  <a
-                    href="/"
-                    className="block py-3 text-xs font-bold uppercase text-slate-700 hover:text-slate-500"
-                  >
-                    <i className="fas fa-fingerprint mr-2 text-sm text-slate-400"></i>{' '}
-                    Theme Icon
-                  </a>
-                </Link>
+                <div className="block cursor-not-allowed py-3 text-xs font-bold uppercase text-slate-300 text-slate-700 hover:text-slate-500">
+                  <FontAwesomeIcon icon={faSun} /> /{' '}
+                  <FontAwesomeIcon icon={faMoon} />
+                </div>
               </li>
             </ul>
           </div>

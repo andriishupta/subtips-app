@@ -1,3 +1,5 @@
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
 export default function CardStats({
   statSubtitle,
   statTitle,
@@ -5,7 +7,7 @@ export default function CardStats({
   statPercent,
   statPercentColor,
   statDescripiron,
-  statIconName,
+  statIcon,
   statIconColor,
 }: any) {
   return (
@@ -28,7 +30,7 @@ export default function CardStats({
                   statIconColor
                 }
               >
-                <i className={statIconName}></i>
+                <FontAwesomeIcon icon={statIcon} />
               </div>
             </div>
           </div>
