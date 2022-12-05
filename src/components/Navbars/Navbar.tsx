@@ -1,11 +1,15 @@
 import Link from 'next/link';
 import { useState } from 'react';
-import { ConnectButton } from '@components/ConnectButton/ConnectButton';
+import { SignInButton } from '@components/SignInButton/SignInButton';
 import { useWeb3 } from '@web3/context';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faRocket, faSpinner } from '@fortawesome/free-solid-svg-icons';
+import { faGithub, faTwitter } from '@fortawesome/free-brands-svg-icons';
 
 export default function Navbar() {
   const [navbarOpen, setNavbarOpen] = useState(false);
-  const { isReady } = useWeb3();
+  const { isReady, activeUser, subsocialApi, error } = useWeb3();
+  console.log('active user from navbar:', activeUser);
 
   return (
     <>
@@ -17,7 +21,17 @@ export default function Navbar() {
                 className="mr-4 inline-block whitespace-nowrap py-2 text-sm font-bold uppercase leading-relaxed text-white"
                 href="@components/ui/Navbars/AuthNavbar#pablo"
               >
-                SubTips
+                SubTips{' '}
+                {subsocialApi ? (
+                  ' 🟢'
+                ) : error ? (
+                  ' 🔴'
+                ) : (
+                  <>
+                    {' '}
+                    <FontAwesomeIcon icon={faSpinner} className="animate-spin"/>
+                  </>
+                )}
               </a>
             </Link>
             <button
@@ -36,21 +50,20 @@ export default function Navbar() {
             id="example-navbar-warning"
           >
             <ul className="flex list-none flex-col lg:ml-auto lg:flex-row">
-              {isReady && (
+              {activeUser ? (
                 <li className="flex items-center">
                   <Link
                     href="/dashboard"
                     className="flex items-center px-3 py-4 text-xs font-bold uppercase text-slate-700 lg:py-2 lg:text-white lg:hover:text-slate-200"
                   >
-                    <i className="fab fa-facebook leading-lg text-lg text-slate-400 lg:text-slate-200 " />
                     <span className="ml-2 inline-block">Dashboard</span>
                   </Link>
                 </li>
+              ) : (
+                <li className="flex items-center">
+                  <SignInButton />
+                </li>
               )}
-
-              <li className="flex items-center">
-                <ConnectButton />
-              </li>
 
               <li className="flex items-center">
                 <a
@@ -59,8 +72,7 @@ export default function Navbar() {
                   target="_blank"
                   rel="noreferrer"
                 >
-                  <i className="fab fa-facebook leading-lg text-lg text-slate-400 lg:text-slate-200 " />
-                  <span className="ml-2 inline-block">Polkaverse</span>
+                  <FontAwesomeIcon icon={faRocket} />
                 </a>
               </li>
 
@@ -71,8 +83,7 @@ export default function Navbar() {
                   target="_blank"
                   rel="noreferrer"
                 >
-                  <i className="fab fa-twitter leading-lg text-lg text-slate-400 lg:text-slate-200 " />
-                  <span className="ml-2 inline-block">Twitter</span>
+                  <FontAwesomeIcon icon={faTwitter} />
                 </a>
               </li>
 
@@ -83,8 +94,7 @@ export default function Navbar() {
                   target="_blank"
                   rel="noreferrer"
                 >
-                  <i className="fab fa-github leading-lg text-lg text-slate-400 lg:text-slate-200 " />
-                  <span className="ml-2 inline-block">Github</span>
+                  <FontAwesomeIcon icon={faGithub} />
                 </a>
               </li>
             </ul>

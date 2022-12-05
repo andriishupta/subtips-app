@@ -6,7 +6,7 @@ import { faChair } from '@fortawesome/free-solid-svg-icons';
 export default function Index() {
   return (
     <>
-      <Navbar transparent />
+      <Navbar />
       <main>
         <div className="relative flex min-h-screen-75 content-center items-center justify-center pt-16 pb-32">
           <div
@@ -25,7 +25,9 @@ export default function Index() {
                   </h1>
                   <p className="mt-4 text-lg text-slate-200">
                     Build a strong community of supporters by leveraging power
-                    of Subsocial Network!
+                    of
+                    <br />
+                    <b>Subsocial Network!</b>
                   </p>
                 </div>
               </div>
