@@ -6,6 +6,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faRocket, faSpinner } from '@fortawesome/free-solid-svg-icons';
 import { faGithub, faTwitter } from '@fortawesome/free-brands-svg-icons';
 import SubTipsStatus from '@components/Helpers/SubTipsStatus';
+import { github, polkaverse, twitter } from "@utils/links";
 
 export default function Navbar() {
   const { activeUser, subsocialApi, error } = useWeb3();
@@ -58,7 +59,7 @@ export default function Navbar() {
               <li className="flex items-center">
                 <a
                   className="flex items-center px-3 py-4 text-xs font-bold uppercase text-slate-700 lg:py-2 lg:text-white lg:hover:text-slate-200"
-                  href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdemos.creative-tim.com%2Fnotus-nextjs%2F"
+                  href={polkaverse}
                   target="_blank"
                   rel="noreferrer"
                 >
@@ -69,7 +70,7 @@ export default function Navbar() {
               <li className="flex items-center">
                 <a
                   className="flex items-center px-3 py-4 text-xs font-bold uppercase text-slate-700 lg:py-2 lg:text-white lg:hover:text-slate-200"
-                  href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fdemos.creative-tim.com%2Fnotus-nextjs%2F&text=Start%20your%20development%20with%20a%20Free%20Tailwind%20CSS%20and%20NextJS%20UI%20Kit%20and%20Admin.%20Let%20Notus%20NextJS%20amaze%20you%20with%20its%20cool%20features%20and%20build%20tools%20and%20get%20your%20project%20to%20a%20whole%20new%20level."
+                  href={twitter}
                   target="_blank"
                   rel="noreferrer"
                 >
@@ -80,7 +81,7 @@ export default function Navbar() {
               <li className="flex items-center">
                 <a
                   className="flex items-center px-3 py-4 text-xs font-bold uppercase text-slate-700 lg:py-2 lg:text-white lg:hover:text-slate-200"
-                  href="https://github.com/creativetimofficial/notus-nextjs?ref=nnjs-auth-navbar"
+                  href={github}
                   target="_blank"
                   rel="noreferrer"
                 >
