@@ -29,7 +29,10 @@ export default function Navbar() {
                 ) : (
                   <>
                     {' '}
-                    <FontAwesomeIcon icon={faSpinner} className="animate-spin"/>
+                    <FontAwesomeIcon
+                      icon={faSpinner}
+                      className="animate-spin"
+                    />
                   </>
                 )}
               </a>

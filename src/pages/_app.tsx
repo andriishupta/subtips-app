@@ -21,7 +21,7 @@ const MyApp: AppType = ({ Component, pageProps }) => {
     createSubsocialApi()
       .then((apiWithIpfsAuth) => {
         console.log('Subsocial connected!');
-        setSubsocialContext({subsocialApi: apiWithIpfsAuth})
+        setSubsocialContext({ subsocialApi: apiWithIpfsAuth });
       })
       .catch((e) => {
         console.error('Error with connection to Subsocial:', e);

@@ -16,7 +16,7 @@ export const SignInButton = () => {
 
     patchWeb3Context({
       activeUser: { name: 'Test' },
-      ...nextWeb3Context
+      ...nextWeb3Context,
     });
     setSigningIn(false);
   };

@@ -2,9 +2,10 @@ import {
   createContext,
   FC,
   PropsWithChildren,
-  useContext, useEffect,
-  useState
-} from "react";
+  useContext,
+  useEffect,
+  useState,
+} from 'react';
 import type { InjectedAccountWithMeta } from '@polkadot/extension-inject/types';
 import type { SubsocialApi } from '@subsocial/api';
 
@@ -59,9 +60,12 @@ export const Web3ContextProvider: FC<
 
   useEffect(() => {
     if (initialConfig) {
-      setCurrentContext((prevContext) => ({ ...prevContext, ...initialConfig }))
+      setCurrentContext((prevContext) => ({
+        ...prevContext,
+        ...initialConfig,
+      }));
     }
-  }, [initialConfig])
+  }, [initialConfig]);
 
   const patchWeb3Context = (nextContext: Partial<TWeb3Context>) =>
     setCurrentContext((prevContext) => ({ ...prevContext, ...nextContext }));
