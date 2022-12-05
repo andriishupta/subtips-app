@@ -4,6 +4,7 @@ import { useRouter } from 'next/router';
 
 import NotificationDropdown from '@components/Dropdowns/NotificationDropdown';
 import UserDropdown from '@components/Dropdowns/UserDropdown';
+import SubTipsStatus from "@components/Helpers/SubTipsStatus";
 
 export default function Sidebar() {
   const [collapseShow, setCollapseShow] = useState('hidden');
@@ -21,13 +22,11 @@ export default function Sidebar() {
             <i className="fas fa-bars"></i>
           </button>
           {/* Brand */}
-          <Link href="/" legacyBehavior>
-            <a
-              href="/"
-              className="mr-0 inline-block whitespace-nowrap p-4 px-0 text-left text-sm font-bold uppercase text-slate-600 md:block md:pb-2"
-            >
-              SubTips
-            </a>
+          <Link
+            href="/"
+            className="mr-0 inline-block whitespace-nowrap p-4 px-0 text-left text-sm font-bold uppercase text-slate-600 md:block md:pb-2"
+          >
+            <SubTipsStatus/>
           </Link>
           {/* User */}
           <ul className="flex list-none flex-wrap items-center md:hidden">

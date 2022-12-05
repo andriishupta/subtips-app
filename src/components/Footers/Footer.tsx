@@ -1,3 +1,8 @@
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faGithub, faTwitter } from '@fortawesome/free-brands-svg-icons';
+import Link from 'next/link';
+import { github, linkedin, links, twitter } from '@utils/links';
+
 export default function Footer() {
   return (
     <>
@@ -24,19 +29,25 @@ export default function Footer() {
         <div className="container mx-auto px-4">
           <div className="flex flex-wrap text-center lg:text-left">
             <div className="w-full px-4 lg:w-6/12">
-              <h4 className="text-3xl font-semibold">Let's keep in touch!</h4>
+              <h4 className="text-3xl font-semibold">
+                Let&apos;s keep in touch!
+              </h4>
               <div className="mt-6 mb-6 lg:mb-0">
                 <button
                   className="align-center mr-2 h-10 w-10 items-center justify-center rounded-full bg-white font-normal text-sky-400 shadow-lg outline-none focus:outline-none"
                   type="button"
                 >
-                  <i className="fab fa-twitter"></i>
+                  <Link href={twitter} target="_blank" rel="noreferrer">
+                    <FontAwesomeIcon icon={faTwitter} />
+                  </Link>
                 </button>
                 <button
                   className="align-center mr-2 h-10 w-10 items-center justify-center rounded-full bg-white font-normal text-slate-800 shadow-lg outline-none focus:outline-none"
                   type="button"
                 >
-                  <i className="fab fa-github"></i>
+                  <Link href={github} target="_blank" rel="noreferrer">
+                    <FontAwesomeIcon icon={faGithub} />
+                  </Link>
                 </button>
               </div>
             </div>
@@ -48,36 +59,24 @@ export default function Footer() {
                   </span>
                   <ul className="list-unstyled">
                     <li>
-                      <a
+                      <Link
                         className="block pb-2 text-sm font-semibold text-slate-600 hover:text-slate-800"
-                        href="https://www.creative-tim.com/presentation?ref=nnjs-footer"
+                        href={linkedin}
+                        target="_blank"
+                        rel="noreferrer"
                       >
-                        About Us
-                      </a>
+                        LinkedIn
+                      </Link>
                     </li>
                     <li>
-                      <a
+                      <Link
                         className="block pb-2 text-sm font-semibold text-slate-600 hover:text-slate-800"
-                        href="https://blog.creative-tim.com?ref=nnjs-footer"
+                        href={links}
+                        target="_blank"
+                        rel="noreferrer"
                       >
-                        Blog
-                      </a>
-                    </li>
-                    <li>
-                      <a
-                        className="block pb-2 text-sm font-semibold text-slate-600 hover:text-slate-800"
-                        href="https://www.github.com/creativetimofficial?ref=nnjs-footer"
-                      >
-                        Github
-                      </a>
-                    </li>
-                    <li>
-                      <a
-                        className="block pb-2 text-sm font-semibold text-slate-600 hover:text-slate-800"
-                        href="https://www.creative-tim.com/bootstrap-themes/free?ref=nnjs-footer"
-                      >
-                        Free Products
-                      </a>
+                        Other Links
+                      </Link>
                     </li>
                   </ul>
                 </div>

@@ -1,7 +1,8 @@
 import Navbar from '@components/Navbars/Navbar';
 import Footer from '@components/Footers/Footer';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faChair } from '@fortawesome/free-solid-svg-icons';
+import { faDumbbell, faLaptop, faRocket } from "@fortawesome/free-solid-svg-icons";
+import { faTwitter } from "@fortawesome/free-brands-svg-icons";
 
 export default function Index() {
   return (
@@ -62,12 +63,11 @@ export default function Index() {
                 <div className="relative mb-8 flex w-full min-w-0 flex-col break-words rounded-lg bg-white shadow-lg">
                   <div className="flex-auto px-4 py-5">
                     <div className="mb-5 inline-flex h-12 w-12 items-center justify-center rounded-full bg-red-400 p-3 text-center text-white shadow-lg">
-                      <FontAwesomeIcon icon={faChair} />
+                      <FontAwesomeIcon icon={faRocket} />
                     </div>
-                    <h6 className="text-xl font-semibold">Awarded Agency</h6>
+                    <h6 className="text-xl font-semibold">Awesome Web3 Experience</h6>
                     <p className="mt-2 mb-4 text-slate-500">
-                      Divide details about your product or agency work into
-                      parts. A paragraph describing a feature will be enough.
+                      Polkadot is like any other L2, but L1. Also you have parachains, parathreads, ...etc :)
                     </p>
                   </div>
                 </div>
@@ -77,12 +77,11 @@ export default function Index() {
                 <div className="relative mb-8 flex w-full min-w-0 flex-col break-words rounded-lg bg-white shadow-lg">
                   <div className="flex-auto px-4 py-5">
                     <div className="mb-5 inline-flex h-12 w-12 items-center justify-center rounded-full bg-sky-400 p-3 text-center text-white shadow-lg">
-                      <i className="fas fa-retweet"></i>
+                      <FontAwesomeIcon icon={faDumbbell} />
                     </div>
-                    <h6 className="text-xl font-semibold">Free Revisions</h6>
+                    <h6 className="text-xl font-semibold">Strong community</h6>
                     <p className="mt-2 mb-4 text-slate-500">
-                      Keep you user engaged by providing meaningful information.
-                      Remember that by this time, the user is curious.
+                      Go and checkout some docs and places on Polkadot and Kusama!
                     </p>
                   </div>
                 </div>
@@ -92,12 +91,11 @@ export default function Index() {
                 <div className="relative mb-8 flex w-full min-w-0 flex-col break-words rounded-lg bg-white shadow-lg">
                   <div className="flex-auto px-4 py-5">
                     <div className="mb-5 inline-flex h-12 w-12 items-center justify-center rounded-full bg-emerald-400 p-3 text-center text-white shadow-lg">
-                      <i className="fas fa-fingerprint"></i>
+                      <FontAwesomeIcon icon={faLaptop} />
                     </div>
-                    <h6 className="text-xl font-semibold">Verified Company</h6>
+                    <h6 className="text-xl font-semibold">Best Dev Experience</h6>
                     <p className="mt-2 mb-4 text-slate-500">
-                      Write a few lines about each one. A paragraph describing a
-                      feature will be enough. Keep you user engaged!
+                      We are working on it 😬...
                     </p>
                   </div>
                 </div>
@@ -169,7 +167,7 @@ export default function Index() {
                         className="mr-1 mb-1 h-8 w-8 rounded-full bg-sky-400 text-white outline-none focus:outline-none"
                         type="button"
                       >
-                        <i className="fab fa-twitter"></i>
+                        <FontAwesomeIcon icon={faTwitter}/>
                       </button>
                     </div>
                   </div>

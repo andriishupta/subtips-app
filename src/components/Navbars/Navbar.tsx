@@ -5,10 +5,11 @@ import { useWeb3 } from '@web3/context';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faRocket, faSpinner } from '@fortawesome/free-solid-svg-icons';
 import { faGithub, faTwitter } from '@fortawesome/free-brands-svg-icons';
+import SubTipsStatus from "@components/Helpers/SubTipsStatus";
 
 export default function Navbar() {
   const [navbarOpen, setNavbarOpen] = useState(false);
-  const { isReady, activeUser, subsocialApi, error } = useWeb3();
+  const { activeUser, subsocialApi, error } = useWeb3();
   console.log('active user from navbar:', activeUser);
 
   return (
@@ -21,29 +22,19 @@ export default function Navbar() {
                 className="mr-4 inline-block whitespace-nowrap py-2 text-sm font-bold uppercase leading-relaxed text-white"
                 href="@components/ui/Navbars/AuthNavbar#pablo"
               >
-                SubTips{' '}
-                {subsocialApi ? (
-                  ' 🟢'
-                ) : error ? (
-                  ' 🔴'
-                ) : (
-                  <>
-                    {' '}
-                    <FontAwesomeIcon
-                      icon={faSpinner}
-                      className="animate-spin"
-                    />
-                  </>
-                )}
+                <SubTipsStatus/>
               </a>
             </Link>
-            <button
-              className="block cursor-pointer rounded border border-solid border-transparent bg-transparent px-3 py-1 text-xl leading-none outline-none focus:outline-none lg:hidden"
-              type="button"
-              onClick={() => setNavbarOpen(!navbarOpen)}
-            >
-              <i className="fas fa-bars text-white"></i>
-            </button>
+            {activeUser ? (
+              <button
+                className="cursor-pointer rounded px-3 py-1 text-xl text-white leading-none outline-none focus:outline-none lg:hidden"
+                type="button"
+              >
+                <Link href="/dashboard">Dashboard</Link>
+              </button>
+            ) : (
+              <SignInButton />
+            )}
           </div>
           <div
             className={
