@@ -8,6 +8,7 @@ import {
 } from 'react';
 import type { InjectedAccountWithMeta } from '@polkadot/extension-inject/types';
 import type { SubsocialApi } from '@subsocial/api';
+import { SUBTIPS_DEFAULT_ACCOUNT_KEY } from "@utils/storage";
 
 export type TInjectedContext = {
   isReady: boolean;
@@ -16,21 +17,24 @@ export type TInjectedContext = {
 };
 
 export type TUserContext = {
-  activeUser?: any; // todo get Subsocial user
+  activeUserInStorage: boolean
+  activeUser?: {
+    address: string
+  }; // todo get Subsocial user
 };
 
 export type TSubsocialContext = {
   subsocialApi?: SubsocialApi;
 };
 
-export type TContextError = {
+export type TLatestContextError = {
   error?: Error | unknown;
 };
 
 export type TWeb3Context = TInjectedContext &
   TUserContext &
   TSubsocialContext &
-  TContextError;
+  TLatestContextError;
 
 export type TWeb3ContextWithConfig = TWeb3Context & {
   patchWeb3Context: (newContext: Partial<TWeb3Context>) => void;
@@ -38,10 +42,12 @@ export type TWeb3ContextWithConfig = TWeb3Context & {
 };
 
 export const emptyWeb3Context: TWeb3Context = {
+  subsocialApi: undefined,
   isReady: false,
   accounts: undefined,
   defaultAccount: undefined,
-  subsocialApi: undefined,
+  activeUserInStorage: false,
+  activeUser: undefined,
   error: undefined,
 };
 
@@ -70,7 +76,10 @@ export const Web3ContextProvider: FC<
   const patchWeb3Context = (nextContext: Partial<TWeb3Context>) =>
     setCurrentContext((prevContext) => ({ ...prevContext, ...nextContext }));
 
-  const clearWeb3Context = () => setCurrentContext({ ...emptyWeb3Context });
+  const clearWeb3Context = () => {
+    localStorage.removeItem(SUBTIPS_DEFAULT_ACCOUNT_KEY)
+    setCurrentContext({ ...emptyWeb3Context });
+  }
 
   return (
     <Web3Context.Provider
@@ -82,7 +91,7 @@ export const Web3ContextProvider: FC<
 };
 
 export const loadInjectedContext = async (): Promise<
-  TInjectedContext | TContextError
+  TInjectedContext | TLatestContextError
 > => {
   try {
     const { web3Enable, web3Accounts } = await import(
@@ -111,3 +120,7 @@ export const loadInjectedContext = async (): Promise<
     };
   }
 };
+
+export const subsocialConnecting = (context: any) => true // todo
+export const injectedConnecting = (context: any) => true // todo
+export const userConnecting = (context: any) => true // todo

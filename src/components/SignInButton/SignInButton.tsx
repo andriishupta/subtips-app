@@ -3,6 +3,7 @@ import { getProfileImagePlaceHolder } from '@utils/base64-image';
 import clsx from 'clsx';
 import { loadInjectedContext, useWeb3 } from '@web3/context';
 import { useState } from 'react';
+import { SUBTIPS_DEFAULT_ACCOUNT_KEY } from "@utils/storage";
 
 export const SignInButton = () => {
   const { isReady, defaultAccount, patchWeb3Context } = useWeb3();
@@ -10,14 +11,27 @@ export const SignInButton = () => {
 
   const handleSignIn = async () => {
     setSigningIn(true);
-    const nextWeb3Context = await loadInjectedContext();
 
-    // signIn with Subsocial and get user
+    const nextInjectedContext = await loadInjectedContext();
+    const activeDefaultAccount = 'defaultAccount' in nextInjectedContext &&
+      nextInjectedContext.defaultAccount;
+    const activeUser =
+      activeDefaultAccount
+        ? {
+            address: activeDefaultAccount.address,
+          }
+        : undefined;
+
+    if (activeUser) {
+      localStorage.setItem(SUBTIPS_DEFAULT_ACCOUNT_KEY, JSON.stringify(activeDefaultAccount));
+    }
 
     patchWeb3Context({
-      activeUser: { name: 'Test' },
-      ...nextWeb3Context,
+      activeUser,
+      activeUserInStorage: !!activeUser,
+      ...nextInjectedContext,
     });
+
     setSigningIn(false);
   };
 
