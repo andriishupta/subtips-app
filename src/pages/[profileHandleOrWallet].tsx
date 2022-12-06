@@ -1,10 +1,40 @@
 import Navbar from '@components/Navbars/Navbar';
 import Footer from '@components/Footers/Footer';
+import { faRocket } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import Link from 'next/link';
+import { useWeb3 } from '@web3/context';
+import { useRouter } from 'next/router';
+import Head from 'next/head';
 
-export default function ProfileHandleOrWallet() {
+export default function ProfileHandleOrWallet({
+  name,
+  about,
+  friends,
+  posts,
+}: {
+  name: string;
+  about: string;
+  friends: string;
+  posts: string;
+}) {
+  // todo typings
+  const { activeUser } = useWeb3();
+  const { query } = useRouter();
+  const { profileHandleOrWallet } = query;
+
+  const shortAddress = `${profileHandleOrWallet!.slice(0, 3)}...${profileHandleOrWallet!.slice(
+    -3
+  )}`;
+  const isCurrentWalletsAccount = activeUser?.address === profileHandleOrWallet;
+  const polkaverseLink = `https://polkaverse.com/accounts/${profileHandleOrWallet}`;
+
   return (
     <>
-      <Navbar transparent />
+      <Head>
+        <title>{profileHandleOrWallet} | SubTips</title>
+      </Head>
+      <Navbar />
       <main className="profile-page">
         <section className="relative block h-500-px">
           <div
@@ -14,10 +44,7 @@ export default function ProfileHandleOrWallet() {
                 "url('https://images.unsplash.com/photo-1499336315816-097655dcfbda?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2710&q=80')",
             }}
           >
-            <span
-              id="blackOverlay"
-              className="absolute h-full w-full bg-black opacity-50"
-            ></span>
+            <span id="blackOverlay" className="absolute h-full w-full bg-black opacity-50"></span>
           </div>
           <div
             className="pointer-events-none absolute top-auto bottom-0 left-0 right-0 h-16 w-full overflow-hidden"
@@ -39,6 +66,7 @@ export default function ProfileHandleOrWallet() {
             </svg>
           </div>
         </section>
+
         <section className="relative bg-slate-200 py-16">
           <div className="container mx-auto px-4">
             <div className="relative mb-6 -mt-64 flex w-full min-w-0 flex-col break-words rounded-lg bg-white shadow-xl">
@@ -55,71 +83,40 @@ export default function ProfileHandleOrWallet() {
                   </div>
                   <div className="w-full px-4 lg:order-3 lg:w-4/12 lg:self-center lg:text-right">
                     <div className="mt-32 py-6 px-3 sm:mt-0">
-                      <button
+                      <Link
+                        href={polkaverseLink}
                         className="mb-1 rounded bg-slate-700 px-4 py-2 text-xs font-bold uppercase text-white shadow outline-none transition-all duration-150 ease-linear hover:shadow-md focus:outline-none active:bg-slate-600 sm:mr-2"
-                        type="button"
                       >
-                        Lenster/Orb/LensFriends/ENS/etc
-                      </button>
+                        <FontAwesomeIcon icon={faRocket} />
+                      </Link>
                     </div>
                   </div>
                   <div className="w-full px-4 lg:order-1 lg:w-4/12">
                     <div className="flex justify-center py-4 pt-8 lg:pt-4">
                       <div className="mr-4 p-3 text-center">
                         <span className="block text-xl font-bold uppercase tracking-wide text-slate-600">
-                          22
+                          { friends }
                         </span>
                         <span className="text-sm text-slate-400">Friends</span>
                       </div>
                       <div className="mr-4 p-3 text-center">
                         <span className="block text-xl font-bold uppercase tracking-wide text-slate-600">
-                          10
+                          { posts }
                         </span>
-                        <span className="text-sm text-slate-400">Photos</span>
-                      </div>
-                      <div className="p-3 text-center lg:mr-4">
-                        <span className="block text-xl font-bold uppercase tracking-wide text-slate-600">
-                          89
-                        </span>
-                        <span className="text-sm text-slate-400">Comments</span>
+                        <span className="text-sm text-slate-400">Posts</span>
                       </div>
                     </div>
                   </div>
                 </div>
                 <div className="mt-12 text-center">
                   <h3 className="mb-2 mb-2 text-4xl font-semibold leading-normal text-slate-700">
-                    Jenna Stones
+                    {name} {isCurrentWalletsAccount ? '- Your Profile' : ''}
                   </h3>
-                  <div className="mt-0 mb-2 text-sm font-bold leading-normal text-slate-400">
-                    <i className="fas fa-map-marker-alt mr-2 text-lg text-slate-400"></i>{' '}
-                    copy: https://lensgrow.app/andriishupta.lens
-                  </div>
-                  <div className="mb-2 mt-10 text-slate-600">
-                    <i className="fas fa-briefcase mr-2 text-lg text-slate-400"></i>
-                    Solution Manager - Creative Tim Officer
-                  </div>
-                  <div className="mb-2 text-slate-600">
-                    <i className="fas fa-university mr-2 text-lg text-slate-400"></i>
-                    University of Computer Science
-                  </div>
                 </div>
                 <div className="mt-10 border-t border-slate-200 py-10 text-center">
                   <div className="flex flex-wrap justify-center">
                     <div className="w-full px-4 lg:w-9/12">
-                      <p className="mb-4 text-lg leading-relaxed text-slate-700">
-                        An artist of considerable range, Jenna the name taken by
-                        Melbourne-raised, Brooklyn-based Nick Murphy writes,
-                        performs and records all of his own music, giving it a
-                        warm, intimate feel with a solid groove structure. An
-                        artist of considerable range.
-                      </p>
-                      <a
-                        href="#pablo"
-                        className="font-normal text-sky-500"
-                        onClick={(e) => e.preventDefault()}
-                      >
-                        Show more
-                      </a>
+                      <p className="mb-4 text-lg leading-relaxed text-slate-700">{about}</p>
                     </div>
                   </div>
                 </div>
@@ -131,4 +128,30 @@ export default function ProfileHandleOrWallet() {
       <Footer />
     </>
   );
+}
+
+export async function getServerSideProps(context: any) {
+  // const profileAddress = context.params.profileHandleOrWallet;
+  // const serverSideApi = await createSubsocialApi();
+  // const profile = await api.base.findProfileSpace(profileAddress);
+
+  /**
+   * Mocking data such as I don't have subsocial account on SoonSocial
+   */
+
+  const profile = {
+    content: {
+      name: 'Andrii Shupta',
+      about: '🧑‍💻 Lead Full Stack Developer',
+    },
+  };
+
+  return {
+    props: {
+      name: profile?.content?.name,
+      about: profile?.content?.about,
+      friends: 420,
+      posts: 69,
+    },
+  };
 }

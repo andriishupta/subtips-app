@@ -6,11 +6,11 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faRocket, faSpinner } from '@fortawesome/free-solid-svg-icons';
 import { faGithub, faTwitter } from '@fortawesome/free-brands-svg-icons';
 import SubTipsStatus from '@components/Helpers/SubTipsStatus';
-import { github, polkaverse, twitter } from "@utils/links";
+import { github, polkaverse, twitter } from '@utils/links';
+import SearchMock from "@components/Helpers/SearchMock";
 
 export default function Navbar() {
-  const { activeUser, subsocialApi, error } = useWeb3();
-  console.log('active user from navbar:', activeUser);
+  const { activeUser, activeUserInStorage } = useWeb3();
 
   return (
     <>
@@ -31,16 +31,19 @@ export default function Navbar() {
                 >
                   <Link href="/dashboard">Dashboard</Link>
                 </button>
+              ) : activeUserInStorage ? (
+                <FontAwesomeIcon icon={faSpinner} className="animate-spin" />
               ) : (
                 <SignInButton />
               )}
             </div>
           </div>
           <div
-            className="hidden lg:flex flex-grow items-center bg-white lg:flex lg:bg-opacity-0 lg:shadow-none"
+            className="hidden flex-grow items-center bg-white lg:flex lg:flex lg:bg-opacity-0 lg:shadow-none"
             id="example-navbar-warning"
           >
             <ul className="flex list-none flex-col lg:ml-auto lg:flex-row">
+              <li className="flex items-center"> <SearchMock/> </li>
               {activeUser ? (
                 <li className="flex items-center">
                   <Link
@@ -52,9 +55,15 @@ export default function Navbar() {
                 </li>
               ) : (
                 <li className="flex items-center">
-                  <SignInButton />
+                  {activeUserInStorage ? (
+                    <FontAwesomeIcon icon={faSpinner} className="animate-spin" />
+                  ) : (
+                    <SignInButton />
+                  )}
                 </li>
               )}
+
+              <li className="flex items-center text-white"> | </li>
 
               <li className="flex items-center">
                 <a

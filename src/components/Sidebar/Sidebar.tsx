@@ -7,10 +7,13 @@ import UserDropdown from '@components/Dropdowns/UserDropdown';
 import SubTipsStatus from '@components/Helpers/SubTipsStatus';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMoon, faSun, faTimes } from '@fortawesome/free-solid-svg-icons';
+import { useWeb3 } from '@web3/context';
 
 export default function Sidebar() {
   const [collapseShow, setCollapseShow] = useState('hidden');
-  const router = useRouter();
+  const { activeUser } = useWeb3();
+  const profileLink = activeUser?.address && `/${activeUser.address}`;
+
   return (
     <>
       <nav className="relative z-10 flex flex-wrap items-center justify-between bg-white py-4 px-6 shadow-xl md:fixed md:left-0 md:top-0 md:bottom-0 md:block md:w-64 md:flex-row md:flex-nowrap md:overflow-hidden md:overflow-y-auto">
@@ -71,22 +74,20 @@ export default function Sidebar() {
 
             <ul className="flex list-none flex-col md:min-w-full md:flex-col">
               <li className="items-center">
-                <Link
-                  href="/"
-                  className={
-                    'block py-3 text-xs font-bold uppercase ' +
-                    (router.pathname.indexOf('/admin/dashboard') !== -1
-                      ? 'text-sky-500 hover:text-sky-600'
-                      : 'text-slate-700 hover:text-slate-500')
-                  }
-                >
-                  My Profile
-                </Link>
+                {profileLink ? (
+                  <Link href={profileLink} className="block py-3 text-xs font-bold uppercase">
+                    My Profile
+                  </Link>
+                ) : (
+                  <div className="text-slate block py-3 text-xs font-bold uppercase">
+                    My Profile(Loading...)
+                  </div>
+                )}
               </li>
 
               <li className="items-center">
                 <Link
-                  href="/messages"
+                  href=""
                   className="block cursor-not-allowed py-3 text-xs font-bold uppercase text-slate-300"
                 >
                   Messages
@@ -94,7 +95,7 @@ export default function Sidebar() {
               </li>
               <li className="items-center">
                 <Link
-                  href="/notifications"
+                  href=""
                   className="block cursor-not-allowed py-3 text-xs font-bold uppercase text-slate-300"
                 >
                   Notifications
@@ -108,8 +109,7 @@ export default function Sidebar() {
             <ul className="flex list-none flex-col md:mb-4 md:min-w-full md:flex-col">
               <li className="items-center">
                 <div className="block cursor-not-allowed py-3 text-xs font-bold uppercase text-slate-300 text-slate-700 hover:text-slate-500">
-                  <FontAwesomeIcon icon={faSun} /> /{' '}
-                  <FontAwesomeIcon icon={faMoon} />
+                  <FontAwesomeIcon icon={faSun} /> / <FontAwesomeIcon icon={faMoon} />
                 </div>
               </li>
             </ul>

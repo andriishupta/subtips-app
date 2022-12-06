@@ -170,9 +170,11 @@ export default function Index() {
 
         <section className="pt-8">
           <div className="container mx-auto px-4">
-            <div className="mb-24 flex flex-wrap justify-center text-center">
+            <div className="mb-24 flex flex-wrap justify-center">
               <div className="w-full px-4 lg:w-6/12">
-                <h2 className="text-4xl font-semibold">Explore</h2>
+                <div className="text-center">
+                  <h2 className="text-4xl font-semibold">Explore</h2>
+                </div>
                 <div className="m-4 text-lg leading-relaxed text-slate-500">
                   {mockPosts.map((post) => (
                     <div
@@ -184,17 +186,24 @@ export default function Index() {
                       </h5>
                       <p className="font-normal text-gray-700 dark:text-gray-400">{post.summary}</p>
 
-                      <p className="font-normal text-gray-700 dark:text-gray-400">
-                        <FontAwesomeIcon icon={faHeart} /> {post.upvotesCount}{' '}
-                        <FontAwesomeIcon icon={faComment} /> {post.repliesCount}
-                      </p>
+                      <div className="flex justify-between font-normal text-gray-700 dark:text-gray-400">
+                        <div>
+                          <FontAwesomeIcon icon={faHeart} /> {post.upvotesCount}{' '}
+                          <FontAwesomeIcon icon={faComment} /> {post.repliesCount}
+                        </div>
+                        <div>{ new Date(post.createdAtTime).toDateString() }</div>
+                      </div>
                     </div>
                   ))}
                 </div>
 
-                <h5 className="mb-2 text-xl font-bold tracking-tight text-gray-900 dark:text-white">
-                  <Link href="https://polkaverse.com">See more...</Link>
-                </h5>
+                <div className="text-center">
+                  <h5 className="mb-2 text-xl font-bold tracking-tight text-gray-900 dark:text-white">
+                    <Link href="https://polkaverse.com" target="_blank" rel="noreferrer">
+                      See more...
+                    </Link>
+                  </h5>
+                </div>
               </div>
             </div>
           </div>
